@@ -1,10 +1,12 @@
-const Options = () => {
+const Options = ({ totalFeedback, onRatingUpdate }) => {
   return (
     <div>
-      <button onClick={() => console.log("good")}>Good</button>
-      <button onClick={() => console.log("neutral")}>Neutral</button>
-      <button onClick={() => console.log("Bad")}>Bad</button>
-      <button onClick={() => console.log("Reset")}>Reset</button>
+      <button onClick={() => onRatingUpdate("good")}>Good</button>
+      <button onClick={() => onRatingUpdate("neutral")}>Neutral</button>
+      <button onClick={() => onRatingUpdate("bad")}>Bad</button>
+      {totalFeedback > 0 && (
+        <button onClick={() => onRatingUpdate("reset")}>Reset</button>
+      )}
     </div>
   );
 };
